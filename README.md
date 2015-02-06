@@ -1,6 +1,8 @@
 #D3 Presentation
 
-Some links:
+March 5, 2015
+
+##Flu
 
 [Google Flu Trends](https://www.google.org/flutrends/us/#US)
 
@@ -10,3 +12,9 @@ Some links:
 
 * [Vaccination Coverage](http://www.cdc.gov/flu/fluvaxview/reports/reporti1314/trends/index.htm)
 * [Flu activity](http://www.cdc.gov/flu/weekly/fluactivitysurv.htm)
+
+
+##D3 
+
+[D3js.org](http://d3js.org/)
+[Mike Bostocks' Blocks](http://bl.ocks.org/mbostock)
