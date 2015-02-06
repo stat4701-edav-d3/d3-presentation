@@ -25,4 +25,12 @@ March 5, 2015
 
 		ogr2ogr -f GeoJSON countries.json ne_10m_admin_0_countries_lakes.shp
 
+* [Derek Watkins Website](http://dwtkns.com/portfolio/)
+
+	* [NY Times - Norway the Slow Way - Pencil sketching Derek Watkins](http://www.nytimes.com/interactive/2014/09/19/travel/reif-larsen-norway.html?_r=0)
+	* [Derek Watkins Bl.ocks](http://bl.ocks.org/dwtkns)
+	
+
+
+
 ##Markdown Presentations
