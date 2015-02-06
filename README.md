@@ -37,3 +37,4 @@ March 5, 2015
 
 
 * [This is CartoDB's Odyssey.js thing for presentations, its not in D3 but it would be really cool to use after showing D3](http://cartodb.github.io/odyssey.js/)
+	* [Testing one in our repo](http://htmlpreview.github.io/?https://github.com/stat4701-edav-d3/d3-presentation/blob/master/odyssey/odyssey.html)
