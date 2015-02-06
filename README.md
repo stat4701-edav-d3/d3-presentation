@@ -6,7 +6,7 @@ March 5, 2015
 
 * [Google Flu Trends](https://www.google.org/flutrends/us/#US)
 
-  * [data](https://www.google.org/flutrends/us/data.txt)
+  * [Data](https://www.google.org/flutrends/us/data.txt)
 
 * [Centers for Disease Control and Prevention](http://www.cdc.gov/flu/index.htm)
 
