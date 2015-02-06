@@ -34,3 +34,6 @@ March 5, 2015
 
 
 ##Markdown Presentations
+
+
+* [This is CartoDB's Odyssey.js thing for presentations, its not in D3 but it would be really cool to use after showing D3](http://cartodb.github.io/odyssey.js/)
