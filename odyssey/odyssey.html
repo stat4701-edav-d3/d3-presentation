@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="http://cartodb.github.io/odyssey.js/sandbox/favicon.png">
 
   <link rel="stylesheet" href="http://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/themes/css/cartodb.css">
-  <link rel="stylesheet" href="http://cartodb.github.io/odyssey.js/sandbox/css/scroll.css">
+  <link rel="stylesheet" href="css/scroll.css">
   <script src="http://cartodb.github.io/odyssey.js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -123,7 +123,7 @@
         document.getElementById('author').innerHTML = author_;
         document.title = title_ + " | " + author_ +' Odyssey.js';
 
-        var TRIGGER_LINE = this.map.getSize().y + 250;
+        var TRIGGER_LINE = this.map.getSize().y + 50;
         this.story.addEvent(
           this.edge,
           O.Parallel(
