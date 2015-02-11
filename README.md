@@ -12,6 +12,7 @@ March 5, 2015
 
 	* [Vaccination Coverage](http://www.cdc.gov/flu/fluvaxview/reports/reporti1314/trends/index.htm) dms_note: might be best source for vaccination information. 
 	* [Flu activity](http://www.cdc.gov/flu/weekly/fluactivitysurv.htm) dms_note: by state at its finest geographic level it appears at first look. I'll try and dig a little on this. I'm not that well-versed in the different strains of flu so might be useful for that. 
+	* [FluView](http://gis.cdc.gov/grasp/fluview/main.html)
 
 * [Flu Near You - partnership between HealthMap (healthmap.org) at Boston Children’s Hospital, the American Public Health Association (APHA, apha.org) and the Skoll Global Threats Fund (skollglobalthreats.org)](https://flunearyou.org) dms_note: not sure how I feel about this site yet. Not sure how many users/contributing data it has. 
 
