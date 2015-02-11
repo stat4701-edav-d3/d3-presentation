@@ -2,8 +2,8 @@
 #Flu Data & Immunization Data Exploring the Data
 ##Setup Pandas and the input files
 To convert the IPython Notebook to Markdown
-'''IPython nbconvert 01-read-in-source-data-for-all-sources.ipynb --to
-markdown'''
+
+    IPython nbconvert 01-read-in-source-data-for-all-sources.ipynb --to markdown
 
 
     import pandas as pd
