@@ -1,5 +1,9 @@
 
 
+    #Flu Data & Immunization Data Exploring the Data
+    ##Setup Pandas and the input files
+
+
     import pandas as pd
     
     pd.options.display.max_columns = 5200
