@@ -1,0 +1,859 @@
+
+
+    import pandas as pd
+    
+    pd.options.display.max_columns = 5200
+    pd.options.display.max_rows    = 5200
+    
+    inFluCDC = '/Users/danielmsheehan/GitHub/d3-presentation/data/flu/cdc/StateData.csv'
+    inFluGoo = '/Users/danielmsheehan/GitHub/d3-presentation/data/flu/google/data_20150210.txt'
+    inImmCal = '/Users/danielmsheehan/GitHub/d3-presentation/data/immunization/schools/ca/2014-2015 CA Seventh Grade Data.xls'
+    
+    dfFluCDC = pd.read_csv(inFluCDC)
+    dfFluGoo = pd.read_csv(inFluGoo, header=11)
+    inImmCal = pd.io.excel.read_excel(inImmCal, 'SA1415', header=3)
+
+##The CDC Flu Data
+from [FluView](http://gis.cdc.gov/grasp/fluview/main.html)
+
+
+    dfFluCDC.head(3)
+
+
+
+
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>STATENAME</th>
+      <th>URL</th>
+      <th>WEBSITE</th>
+      <th>ACTIVITY LEVEL</th>
+      <th>ACTIVITY LEVEL LABEL</th>
+      <th>WEEKEND</th>
+      <th>WEEK</th>
+      <th>SEASON</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> Alabama</td>
+      <td> http://adph.org/influenza/</td>
+      <td> Influenza Surveillance</td>
+      <td> Level 1</td>
+      <td> Minimal</td>
+      <td> Oct-04-2008</td>
+      <td> 40</td>
+      <td> 2008-09</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> Alabama</td>
+      <td> http://adph.org/influenza/</td>
+      <td> Influenza Surveillance</td>
+      <td> Level 1</td>
+      <td> Minimal</td>
+      <td> Oct-11-2008</td>
+      <td> 41</td>
+      <td> 2008-09</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> Alabama</td>
+      <td> http://adph.org/influenza/</td>
+      <td> Influenza Surveillance</td>
+      <td> Level 1</td>
+      <td> Minimal</td>
+      <td> Oct-18-2008</td>
+      <td> 42</td>
+      <td> 2008-09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+##The Google Flu Data
+From [here](https://www.google.org/flutrends/us/data.txt) at this
+[site](https://www.google.org/flutrends/us/#US)
+
+
+    dfFluGoo.head(3)
+
+
+
+
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>United States</th>
+      <th>Alabama</th>
+      <th>Alaska</th>
+      <th>Arizona</th>
+      <th>Arkansas</th>
+      <th>California</th>
+      <th>Colorado</th>
+      <th>Connecticut</th>
+      <th>Delaware</th>
+      <th>District of Columbia</th>
+      <th>Florida</th>
+      <th>Georgia</th>
+      <th>Hawaii</th>
+      <th>Idaho</th>
+      <th>Illinois</th>
+      <th>Indiana</th>
+      <th>Iowa</th>
+      <th>Kansas</th>
+      <th>Kentucky</th>
+      <th>Louisiana</th>
+      <th>Maine</th>
+      <th>Maryland</th>
+      <th>Massachusetts</th>
+      <th>Michigan</th>
+      <th>Minnesota</th>
+      <th>Mississippi</th>
+      <th>Missouri</th>
+      <th>Montana</th>
+      <th>Nebraska</th>
+      <th>Nevada</th>
+      <th>New Hampshire</th>
+      <th>New Jersey</th>
+      <th>New Mexico</th>
+      <th>New York</th>
+      <th>North Carolina</th>
+      <th>North Dakota</th>
+      <th>Ohio</th>
+      <th>Oklahoma</th>
+      <th>Oregon</th>
+      <th>Pennsylvania</th>
+      <th>Rhode Island</th>
+      <th>South Carolina</th>
+      <th>South Dakota</th>
+      <th>Tennessee</th>
+      <th>Texas</th>
+      <th>Utah</th>
+      <th>Vermont</th>
+      <th>Virginia</th>
+      <th>Washington</th>
+      <th>West Virginia</th>
+      <th>Wisconsin</th>
+      <th>Wyoming</th>
+      <th>HHS Region 1 (CT, ME, MA, NH, RI, VT)</th>
+      <th>HHS Region 2 (NJ, NY)</th>
+      <th>HHS Region 3 (DE, DC, MD, PA, VA, WV)</th>
+      <th>HHS Region 4 (AL, FL, GA, KY, MS, NC, SC, TN)</th>
+      <th>HHS Region 5 (IL, IN, MI, MN, OH, WI)</th>
+      <th>HHS Region 6 (AR, LA, NM, OK, TX)</th>
+      <th>HHS Region 7 (IA, KS, MO, NE)</th>
+      <th>HHS Region 8 (CO, MT, ND, SD, UT, WY)</th>
+      <th>HHS Region 9 (AZ, CA, HI, NV)</th>
+      <th>HHS Region 10 (AK, ID, OR, WA)</th>
+      <th>Anchorage, AK</th>
+      <th>Birmingham, AL</th>
+      <th>Little Rock, AR</th>
+      <th>Mesa, AZ</th>
+      <th>Phoenix, AZ</th>
+      <th>Scottsdale, AZ</th>
+      <th>Tempe, AZ</th>
+      <th>Tucson, AZ</th>
+      <th>Berkeley, CA</th>
+      <th>Fresno, CA</th>
+      <th>Irvine, CA</th>
+      <th>Los Angeles, CA</th>
+      <th>Oakland, CA</th>
+      <th>Sacramento, CA</th>
+      <th>San Diego, CA</th>
+      <th>San Francisco, CA</th>
+      <th>San Jose, CA</th>
+      <th>Santa Clara, CA</th>
+      <th>Sunnyvale, CA</th>
+      <th>Colorado Springs, CO</th>
+      <th>Denver, CO</th>
+      <th>Washington, DC</th>
+      <th>Gainesville, FL</th>
+      <th>Jacksonville, FL</th>
+      <th>Miami, FL</th>
+      <th>Orlando, FL</th>
+      <th>Tampa, FL</th>
+      <th>Atlanta, GA</th>
+      <th>Roswell, GA</th>
+      <th>Honolulu, HI</th>
+      <th>Des Moines, IA</th>
+      <th>Boise, ID</th>
+      <th>Chicago, IL</th>
+      <th>Indianapolis, IN</th>
+      <th>Wichita, KS</th>
+      <th>Lexington, KY</th>
+      <th>Baton Rouge, LA</th>
+      <th>New Orleans, LA</th>
+      <th>Boston, MA</th>
+      <th>Somerville, MA</th>
+      <th>Baltimore, MD</th>
+      <th>Grand Rapids, MI</th>
+      <th>St Paul, MN</th>
+      <th>Kansas City, MO</th>
+      <th>Springfield, MO</th>
+      <th>St Louis, MO</th>
+      <th>Jackson, MS</th>
+      <th>Cary, NC</th>
+      <th>Charlotte, NC</th>
+      <th>Durham, NC</th>
+      <th>Greensboro, NC</th>
+      <th>Raleigh, NC</th>
+      <th>Lincoln, NE</th>
+      <th>Omaha, NE</th>
+      <th>Newark, NJ</th>
+      <th>Albuquerque, NM</th>
+      <th>Las Vegas, NV</th>
+      <th>Reno, NV</th>
+      <th>Albany, NY</th>
+      <th>Buffalo, NY</th>
+      <th>New York, NY</th>
+      <th>Rochester, NY</th>
+      <th>Cleveland, OH</th>
+      <th>Columbus, OH</th>
+      <th>Dayton, OH</th>
+      <th>Oklahoma City, OK</th>
+      <th>Tulsa, OK</th>
+      <th>Beaverton, OR</th>
+      <th>Eugene, OR</th>
+      <th>Portland, OR</th>
+      <th>Philadelphia, PA</th>
+      <th>Pittsburgh, PA</th>
+      <th>State College, PA</th>
+      <th>Providence, RI</th>
+      <th>Columbia, SC</th>
+      <th>Greenville, SC</th>
+      <th>Knoxville, TN</th>
+      <th>Memphis, TN</th>
+      <th>Nashville, TN</th>
+      <th>Austin, TX</th>
+      <th>Dallas, TX</th>
+      <th>Ft Worth, TX</th>
+      <th>Houston, TX</th>
+      <th>Irving, TX</th>
+      <th>Lubbock, TX</th>
+      <th>Plano, TX</th>
+      <th>San Antonio, TX</th>
+      <th>Salt Lake City, UT</th>
+      <th>Arlington, VA</th>
+      <th>Norfolk, VA</th>
+      <th>Reston, VA</th>
+      <th>Richmond, VA</th>
+      <th>Bellevue, WA</th>
+      <th>Seattle, WA</th>
+      <th>Spokane, WA</th>
+      <th>Madison, WI</th>
+      <th>Milwaukee, WI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 2003-09-28</td>
+      <td>  902</td>
+      <td> 477</td>
+      <td>NaN</td>
+      <td> 606</td>
+      <td>NaN</td>
+      <td>  929</td>
+      <td> 233</td>
+      <td> 223</td>
+      <td>NaN</td>
+      <td>  927</td>
+      <td> 587</td>
+      <td> 514</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 677</td>
+      <td> 544</td>
+      <td> 303</td>
+      <td> 272</td>
+      <td> 420</td>
+      <td> 1017</td>
+      <td>NaN</td>
+      <td> 1268</td>
+      <td> 344</td>
+      <td> 685</td>
+      <td> 484</td>
+      <td>NaN</td>
+      <td> 349</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 695</td>
+      <td>NaN</td>
+      <td> 649</td>
+      <td> 565</td>
+      <td>NaN</td>
+      <td> 616</td>
+      <td> 1040</td>
+      <td> 409</td>
+      <td> 1186</td>
+      <td>NaN</td>
+      <td> 462</td>
+      <td>NaN</td>
+      <td> 551</td>
+      <td> 1398</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1112</td>
+      <td> 588</td>
+      <td>NaN</td>
+      <td> 466</td>
+      <td>NaN</td>
+      <td> 322</td>
+      <td> 666</td>
+      <td> 1366</td>
+      <td> 631</td>
+      <td> 690</td>
+      <td> 1385</td>
+      <td> 385</td>
+      <td> 266</td>
+      <td>  878</td>
+      <td> 624</td>
+      <td>NaN</td>
+      <td> 407</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 757</td>
+      <td>NaN</td>
+      <td> 585</td>
+      <td> 598</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>  901</td>
+      <td> 848</td>
+      <td> 448</td>
+      <td> 562</td>
+      <td> 1003</td>
+      <td> 731</td>
+      <td> 990</td>
+      <td> 602</td>
+      <td>NaN</td>
+      <td> 235</td>
+      <td> 1153</td>
+      <td> NaN</td>
+      <td>NaN</td>
+      <td> 373</td>
+      <td> 609</td>
+      <td> 461</td>
+      <td> 519</td>
+      <td>NaN</td>
+      <td>  794</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 731</td>
+      <td> 641</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1154</td>
+      <td> 314</td>
+      <td> 332</td>
+      <td> 1505</td>
+      <td>NaN</td>
+      <td> 426</td>
+      <td> 330</td>
+      <td>NaN</td>
+      <td> 391</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 561</td>
+      <td> 521</td>
+      <td>NaN</td>
+      <td> 503</td>
+      <td>NaN</td>
+      <td> 314</td>
+      <td> 540</td>
+      <td>  NaN</td>
+      <td> 843</td>
+      <td>NaN</td>
+      <td> 505</td>
+      <td>NaN</td>
+      <td> 579</td>
+      <td> 406</td>
+      <td> 466</td>
+      <td> 437</td>
+      <td>NaN</td>
+      <td> 924</td>
+      <td> 1034</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 444</td>
+      <td> 1204</td>
+      <td> 1122</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 425</td>
+      <td> 1150</td>
+      <td> 1200</td>
+      <td>NaN</td>
+      <td> 1412</td>
+      <td> 1122</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>  986</td>
+      <td> 261</td>
+      <td> 1066</td>
+      <td> 948</td>
+      <td>NaN</td>
+      <td> 1035</td>
+      <td>NaN</td>
+      <td> 668</td>
+      <td>NaN</td>
+      <td> 622</td>
+      <td> 452</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 2003-10-05</td>
+      <td>  952</td>
+      <td> 501</td>
+      <td>NaN</td>
+      <td> 663</td>
+      <td>NaN</td>
+      <td>  849</td>
+      <td> 251</td>
+      <td> 243</td>
+      <td>NaN</td>
+      <td>  993</td>
+      <td> 582</td>
+      <td> 532</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 732</td>
+      <td> 607</td>
+      <td> 303</td>
+      <td> 270</td>
+      <td> 442</td>
+      <td> 1096</td>
+      <td>NaN</td>
+      <td> 1374</td>
+      <td> 362</td>
+      <td> 748</td>
+      <td> 514</td>
+      <td>NaN</td>
+      <td> 359</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 716</td>
+      <td>NaN</td>
+      <td> 725</td>
+      <td> 660</td>
+      <td>NaN</td>
+      <td> 699</td>
+      <td> 1065</td>
+      <td> 409</td>
+      <td> 1176</td>
+      <td>NaN</td>
+      <td> 478</td>
+      <td>NaN</td>
+      <td> 597</td>
+      <td> 1517</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1198</td>
+      <td> 624</td>
+      <td>NaN</td>
+      <td> 504</td>
+      <td>NaN</td>
+      <td> 381</td>
+      <td> 711</td>
+      <td> 1335</td>
+      <td> 652</td>
+      <td> 775</td>
+      <td> 1613</td>
+      <td> 400</td>
+      <td> 271</td>
+      <td>  853</td>
+      <td> 688</td>
+      <td>NaN</td>
+      <td> 402</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 796</td>
+      <td>NaN</td>
+      <td> 608</td>
+      <td> 674</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>  891</td>
+      <td> 888</td>
+      <td> 436</td>
+      <td> 840</td>
+      <td> 1115</td>
+      <td> 740</td>
+      <td> 915</td>
+      <td> 594</td>
+      <td>NaN</td>
+      <td> 270</td>
+      <td> 1310</td>
+      <td> NaN</td>
+      <td>NaN</td>
+      <td> 386</td>
+      <td> 663</td>
+      <td> 581</td>
+      <td> 484</td>
+      <td>NaN</td>
+      <td>  877</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 850</td>
+      <td> 657</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1162</td>
+      <td> 323</td>
+      <td> 375</td>
+      <td> 1535</td>
+      <td>NaN</td>
+      <td> 423</td>
+      <td> 316</td>
+      <td>NaN</td>
+      <td> 397</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 673</td>
+      <td> 536</td>
+      <td>NaN</td>
+      <td> 586</td>
+      <td>NaN</td>
+      <td> 331</td>
+      <td> 549</td>
+      <td>  NaN</td>
+      <td> 831</td>
+      <td>NaN</td>
+      <td> 508</td>
+      <td>NaN</td>
+      <td> 730</td>
+      <td> 483</td>
+      <td> 535</td>
+      <td> 415</td>
+      <td>NaN</td>
+      <td> 894</td>
+      <td> 1042</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 471</td>
+      <td> 1124</td>
+      <td> 1193</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 468</td>
+      <td> 1331</td>
+      <td> 1487</td>
+      <td>NaN</td>
+      <td> 2057</td>
+      <td> 1208</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>  989</td>
+      <td> 249</td>
+      <td> 1249</td>
+      <td> 963</td>
+      <td>NaN</td>
+      <td> 1135</td>
+      <td>NaN</td>
+      <td> 787</td>
+      <td>NaN</td>
+      <td> 626</td>
+      <td> 449</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 2003-10-12</td>
+      <td> 1092</td>
+      <td> 492</td>
+      <td>NaN</td>
+      <td> 700</td>
+      <td>NaN</td>
+      <td> 1032</td>
+      <td> 283</td>
+      <td> 261</td>
+      <td>NaN</td>
+      <td> 1033</td>
+      <td> 606</td>
+      <td> 557</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 799</td>
+      <td> 637</td>
+      <td> 312</td>
+      <td> 280</td>
+      <td> 460</td>
+      <td> 1144</td>
+      <td>NaN</td>
+      <td> 1445</td>
+      <td> 372</td>
+      <td> 791</td>
+      <td> 588</td>
+      <td>NaN</td>
+      <td> 381</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 815</td>
+      <td>NaN</td>
+      <td> 739</td>
+      <td> 861</td>
+      <td>NaN</td>
+      <td> 729</td>
+      <td> 1122</td>
+      <td> 428</td>
+      <td> 1340</td>
+      <td>NaN</td>
+      <td> 521</td>
+      <td>NaN</td>
+      <td> 670</td>
+      <td> 2010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1343</td>
+      <td> 777</td>
+      <td>NaN</td>
+      <td> 538</td>
+      <td>NaN</td>
+      <td> 410</td>
+      <td> 819</td>
+      <td> 1411</td>
+      <td> 735</td>
+      <td> 760</td>
+      <td> 2089</td>
+      <td> 422</td>
+      <td> 285</td>
+      <td> 1102</td>
+      <td> 791</td>
+      <td>NaN</td>
+      <td> 428</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 766</td>
+      <td>NaN</td>
+      <td> 629</td>
+      <td> 731</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1165</td>
+      <td> 839</td>
+      <td> 468</td>
+      <td> 938</td>
+      <td> 1311</td>
+      <td> 826</td>
+      <td> 989</td>
+      <td> 609</td>
+      <td>NaN</td>
+      <td> 257</td>
+      <td> 1309</td>
+      <td> 641</td>
+      <td>NaN</td>
+      <td> 370</td>
+      <td> 615</td>
+      <td> 567</td>
+      <td> 497</td>
+      <td>NaN</td>
+      <td> 1030</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 799</td>
+      <td> 685</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1274</td>
+      <td> 369</td>
+      <td> 447</td>
+      <td> 1549</td>
+      <td>NaN</td>
+      <td> 457</td>
+      <td> 343</td>
+      <td>NaN</td>
+      <td> 408</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 738</td>
+      <td> 521</td>
+      <td>NaN</td>
+      <td> 838</td>
+      <td>NaN</td>
+      <td> 373</td>
+      <td> 575</td>
+      <td> 1068</td>
+      <td> 824</td>
+      <td>NaN</td>
+      <td> 555</td>
+      <td>NaN</td>
+      <td> 652</td>
+      <td> 476</td>
+      <td> 671</td>
+      <td> 442</td>
+      <td>NaN</td>
+      <td> 922</td>
+      <td> 1089</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 574</td>
+      <td> 1249</td>
+      <td> 1306</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 497</td>
+      <td> 1492</td>
+      <td> 1869</td>
+      <td>NaN</td>
+      <td> 3770</td>
+      <td> 1191</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 1463</td>
+      <td> 295</td>
+      <td> 1289</td>
+      <td> 970</td>
+      <td>NaN</td>
+      <td> 1170</td>
+      <td>NaN</td>
+      <td> 994</td>
+      <td>NaN</td>
+      <td> 661</td>
+      <td> 437</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+##California Immunization for 7th Grade School Children
+From [California Immunization Rates for School children](http://www.cdph.ca.gov/
+programs/immunize/pages/immunizationlevels.aspx)
+
+
+    inImmCal.head(3)
+
+
+
+
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SCHOOL CODE</th>
+      <th>COUNTY</th>
+      <th>PUBLIC/  PRIVATE</th>
+      <th>PUBLIC SCHOOL DISTRICT</th>
+      <th>CITY</th>
+      <th>SCHOOL NAME</th>
+      <th>ENROLLMENT</th>
+      <th>UP-TO-DATE†</th>
+      <th>Unnamed: 8</th>
+      <th>PME**</th>
+      <th>Unnamed: 10</th>
+      <th>PBE§ </th>
+      <th>Unnamed: 12</th>
+      <th>HEALTH CARE PRACTITIONER COUNSELED PBE§§ </th>
+      <th>Unnamed: 14</th>
+      <th>RELIGIOUS PBE§§§ </th>
+      <th>Unnamed: 16</th>
+      <th>REPORTED§§§§</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>     NaN</td>
+      <td>     NaN</td>
+      <td>    NaN</td>
+      <td>                                NaN</td>
+      <td>     NaN</td>
+      <td>                                     NaN</td>
+      <td> NaN</td>
+      <td>   #</td>
+      <td>     %</td>
+      <td>   #</td>
+      <td>   %</td>
+      <td>   #</td>
+      <td>    %</td>
+      <td>   #</td>
+      <td>   %</td>
+      <td>   #</td>
+      <td>    %</td>
+      <td> NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 0109835</td>
+      <td> ALAMEDA</td>
+      <td> PUBLIC</td>
+      <td> ALAMEDA COUNTY OFFICE OF EDUCATION</td>
+      <td>  NEWARK</td>
+      <td>                     FAME PUBLIC CHARTER</td>
+      <td>  88</td>
+      <td>  86</td>
+      <td> 97.73</td>
+      <td>   0</td>
+      <td>   0</td>
+      <td>   2</td>
+      <td> 2.27</td>
+      <td>   0</td>
+      <td>   0</td>
+      <td>   2</td>
+      <td> 2.27</td>
+      <td>   Y</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 0123968</td>
+      <td> ALAMEDA</td>
+      <td> PUBLIC</td>
+      <td> ALAMEDA COUNTY OFFICE OF EDUCATION</td>
+      <td> OAKLAND</td>
+      <td> COMMUNITY SCHOOL FOR CREATIVE EDUCATION</td>
+      <td>    </td>
+      <td> NaN</td>
+      <td>   NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>  NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td> NaN</td>
+      <td>  NaN</td>
+      <td>   N</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+    
