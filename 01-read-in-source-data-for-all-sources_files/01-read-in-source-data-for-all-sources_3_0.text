@@ -1,0 +1,9 @@
+  STATENAME                         URL                 WEBSITE  \
+0   Alabama  http://adph.org/influenza/  Influenza Surveillance   
+1   Alabama  http://adph.org/influenza/  Influenza Surveillance   
+2   Alabama  http://adph.org/influenza/  Influenza Surveillance   
+
+  ACTIVITY LEVEL ACTIVITY LEVEL LABEL      WEEKEND  WEEK   SEASON  
+0        Level 1              Minimal  Oct-04-2008    40  2008-09  
+1        Level 1              Minimal  Oct-11-2008    41  2008-09  
+2        Level 1              Minimal  Oct-18-2008    42  2008-09  

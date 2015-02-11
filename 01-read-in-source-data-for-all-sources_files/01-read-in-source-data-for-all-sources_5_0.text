@@ -1,0 +1,174 @@
+         Date  United States  Alabama  Alaska  Arizona  Arkansas  California  \
+0  2003-09-28            902      477     NaN      606       NaN         929   
+1  2003-10-05            952      501     NaN      663       NaN         849   
+2  2003-10-12           1092      492     NaN      700       NaN        1032   
+
+   Colorado  Connecticut  Delaware  District of Columbia  Florida  Georgia  \
+0       233          223       NaN                   927      587      514   
+1       251          243       NaN                   993      582      532   
+2       283          261       NaN                  1033      606      557   
+
+   Hawaii  Idaho  Illinois  Indiana  Iowa  Kansas  Kentucky  Louisiana  Maine  \
+0     NaN    NaN       677      544   303     272       420       1017    NaN   
+1     NaN    NaN       732      607   303     270       442       1096    NaN   
+2     NaN    NaN       799      637   312     280       460       1144    NaN   
+
+   Maryland  Massachusetts  Michigan  Minnesota  Mississippi  Missouri  \
+0      1268            344       685        484          NaN       349   
+1      1374            362       748        514          NaN       359   
+2      1445            372       791        588          NaN       381   
+
+   Montana  Nebraska  Nevada  New Hampshire  New Jersey  New Mexico  New York  \
+0      NaN       NaN     NaN            NaN         695         NaN       649   
+1      NaN       NaN     NaN            NaN         716         NaN       725   
+2      NaN       NaN     NaN            NaN         815         NaN       739   
+
+   North Carolina  North Dakota  Ohio  Oklahoma  Oregon  Pennsylvania  \
+0             565           NaN   616      1040     409          1186   
+1             660           NaN   699      1065     409          1176   
+2             861           NaN   729      1122     428          1340   
+
+   Rhode Island  South Carolina  South Dakota  Tennessee  Texas  Utah  \
+0           NaN             462           NaN        551   1398   NaN   
+1           NaN             478           NaN        597   1517   NaN   
+2           NaN             521           NaN        670   2010   NaN   
+
+   Vermont  Virginia  Washington  West Virginia  Wisconsin  Wyoming  \
+0      NaN      1112         588            NaN        466      NaN   
+1      NaN      1198         624            NaN        504      NaN   
+2      NaN      1343         777            NaN        538      NaN   
+
+   HHS Region 1 (CT, ME, MA, NH, RI, VT)  HHS Region 2 (NJ, NY)  \
+0                                    322                    666   
+1                                    381                    711   
+2                                    410                    819   
+
+   HHS Region 3 (DE, DC, MD, PA, VA, WV)  \
+0                                   1366   
+1                                   1335   
+2                                   1411   
+
+   HHS Region 4 (AL, FL, GA, KY, MS, NC, SC, TN)  \
+0                                            631   
+1                                            652   
+2                                            735   
+
+   HHS Region 5 (IL, IN, MI, MN, OH, WI)  HHS Region 6 (AR, LA, NM, OK, TX)  \
+0                                    690                               1385   
+1                                    775                               1613   
+2                                    760                               2089   
+
+   HHS Region 7 (IA, KS, MO, NE)  HHS Region 8 (CO, MT, ND, SD, UT, WY)  \
+0                            385                                    266   
+1                            400                                    271   
+2                            422                                    285   
+
+   HHS Region 9 (AZ, CA, HI, NV)  HHS Region 10 (AK, ID, OR, WA)  \
+0                            878                             624   
+1                            853                             688   
+2                           1102                             791   
+
+   Anchorage, AK  Birmingham, AL  Little Rock, AR  Mesa, AZ  Phoenix, AZ  \
+0            NaN             407              NaN       NaN          757   
+1            NaN             402              NaN       NaN          796   
+2            NaN             428              NaN       NaN          766   
+
+   Scottsdale, AZ  Tempe, AZ  Tucson, AZ  Berkeley, CA  Fresno, CA  \
+0             NaN        585         598           NaN         NaN   
+1             NaN        608         674           NaN         NaN   
+2             NaN        629         731           NaN         NaN   
+
+   Irvine, CA  Los Angeles, CA  Oakland, CA  Sacramento, CA  San Diego, CA  \
+0         NaN              901          848             448            562   
+1         NaN              891          888             436            840   
+2         NaN             1165          839             468            938   
+
+   San Francisco, CA  San Jose, CA  Santa Clara, CA  Sunnyvale, CA  \
+0               1003           731              990            602   
+1               1115           740              915            594   
+2               1311           826              989            609   
+
+   Colorado Springs, CO  Denver, CO  Washington, DC  Gainesville, FL  \
+0                   NaN         235            1153              NaN   
+1                   NaN         270            1310              NaN   
+2                   NaN         257            1309              641   
+
+   Jacksonville, FL  Miami, FL  Orlando, FL  Tampa, FL  Atlanta, GA  \
+0               NaN        373          609        461          519   
+1               NaN        386          663        581          484   
+2               NaN        370          615        567          497   
+
+   Roswell, GA  Honolulu, HI  Des Moines, IA  Boise, ID  Chicago, IL  \
+0          NaN           794             NaN        NaN          731   
+1          NaN           877             NaN        NaN          850   
+2          NaN          1030             NaN        NaN          799   
+
+   Indianapolis, IN  Wichita, KS  Lexington, KY  Baton Rouge, LA  \
+0               641          NaN            NaN              NaN   
+1               657          NaN            NaN              NaN   
+2               685          NaN            NaN              NaN   
+
+   New Orleans, LA  Boston, MA  Somerville, MA  Baltimore, MD  \
+0             1154         314             332           1505   
+1             1162         323             375           1535   
+2             1274         369             447           1549   
+
+   Grand Rapids, MI  St Paul, MN  Kansas City, MO  Springfield, MO  \
+0               NaN          426              330              NaN   
+1               NaN          423              316              NaN   
+2               NaN          457              343              NaN   
+
+   St Louis, MO  Jackson, MS  Cary, NC  Charlotte, NC  Durham, NC  \
+0           391          NaN       NaN            561         521   
+1           397          NaN       NaN            673         536   
+2           408          NaN       NaN            738         521   
+
+   Greensboro, NC  Raleigh, NC  Lincoln, NE  Omaha, NE  Newark, NJ  \
+0             NaN          503          NaN        314         540   
+1             NaN          586          NaN        331         549   
+2             NaN          838          NaN        373         575   
+
+   Albuquerque, NM  Las Vegas, NV  Reno, NV  Albany, NY  Buffalo, NY  \
+0              NaN            843       NaN         505          NaN   
+1              NaN            831       NaN         508          NaN   
+2             1068            824       NaN         555          NaN   
+
+   New York, NY  Rochester, NY  Cleveland, OH  Columbus, OH  Dayton, OH  \
+0           579            406            466           437         NaN   
+1           730            483            535           415         NaN   
+2           652            476            671           442         NaN   
+
+   Oklahoma City, OK  Tulsa, OK  Beaverton, OR  Eugene, OR  Portland, OR  \
+0                924       1034            NaN         NaN           444   
+1                894       1042            NaN         NaN           471   
+2                922       1089            NaN         NaN           574   
+
+   Philadelphia, PA  Pittsburgh, PA  State College, PA  Providence, RI  \
+0              1204            1122                NaN             NaN   
+1              1124            1193                NaN             NaN   
+2              1249            1306                NaN             NaN   
+
+   Columbia, SC  Greenville, SC  Knoxville, TN  Memphis, TN  Nashville, TN  \
+0           NaN             NaN            NaN          NaN            425   
+1           NaN             NaN            NaN          NaN            468   
+2           NaN             NaN            NaN          NaN            497   
+
+   Austin, TX  Dallas, TX  Ft Worth, TX  Houston, TX  Irving, TX  Lubbock, TX  \
+0        1150        1200           NaN         1412        1122          NaN   
+1        1331        1487           NaN         2057        1208          NaN   
+2        1492        1869           NaN         3770        1191          NaN   
+
+   Plano, TX  San Antonio, TX  Salt Lake City, UT  Arlington, VA  Norfolk, VA  \
+0        NaN              986                 261           1066          948   
+1        NaN              989                 249           1249          963   
+2        NaN             1463                 295           1289          970   
+
+   Reston, VA  Richmond, VA  Bellevue, WA  Seattle, WA  Spokane, WA  \
+0         NaN          1035           NaN          668          NaN   
+1         NaN          1135           NaN          787          NaN   
+2         NaN          1170           NaN          994          NaN   
+
+   Madison, WI  Milwaukee, WI  
+0          622            452  
+1          626            449  
+2          661            437  

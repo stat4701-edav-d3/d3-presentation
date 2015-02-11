@@ -1,0 +1,24 @@
+  SCHOOL CODE   COUNTY PUBLIC/  PRIVATE              PUBLIC SCHOOL DISTRICT  \
+0         NaN      NaN              NaN                                 NaN   
+1     0109835  ALAMEDA           PUBLIC  ALAMEDA COUNTY OFFICE OF EDUCATION   
+2     0123968  ALAMEDA           PUBLIC  ALAMEDA COUNTY OFFICE OF EDUCATION   
+
+      CITY                              SCHOOL NAME ENROLLMENT UP-TO-DATE†  \
+0      NaN                                      NaN        NaN           #   
+1   NEWARK                      FAME PUBLIC CHARTER         88          86   
+2  OAKLAND  COMMUNITY SCHOOL FOR CREATIVE EDUCATION                    NaN   
+
+  Unnamed: 8 PME** Unnamed: 10 PBE§  Unnamed: 12  \
+0          %     #           %     #           %   
+1      97.73     0           0     2        2.27   
+2        NaN   NaN         NaN   NaN         NaN   
+
+  HEALTH CARE PRACTITIONER COUNSELED PBE§§  Unnamed: 14 RELIGIOUS PBE§§§   \
+0                                         #           %                 #   
+1                                         0           0                 2   
+2                                       NaN         NaN               NaN   
+
+  Unnamed: 16 REPORTED§§§§  
+0           %          NaN  
+1        2.27            Y  
+2         NaN            N  

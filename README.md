@@ -18,6 +18,7 @@ March 5, 2015
 
 * [California Immunization Rates for School children](http://www.cdph.ca.gov/programs/immunize/pages/immunizationlevels.aspx)
 
+####[IPython Notebook importing data markdown file](https://github.com/stat4701-edav-d3/d3-presentation/blob/master/01-read-in-source-data-for-all-sources.md)
 
 ##D3 
 
