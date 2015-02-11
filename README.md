@@ -16,11 +16,16 @@ March 5, 2015
 
 * [Flu Near You - partnership between HealthMap (healthmap.org) at Boston Children’s Hospital, the American Public Health Association (APHA, apha.org) and the Skoll Global Threats Fund (skollglobalthreats.org)](https://flunearyou.org) dms_note: not sure how I feel about this site yet. Not sure how many users/contributing data it has. 
 
+* [California Immunization Rates for School children](http://www.cdph.ca.gov/programs/immunize/pages/immunizationlevels.aspx)
+
+
 ##D3 
 
 * [D3js.org](http://d3js.org/)
 
 * [Mike Bostocks' Blocks](http://bl.ocks.org/mbostock)
+	* [Let's Make a Map](http://bost.ocks.org/mike/map/)
+	* [Choropleth](http://bl.ocks.org/mbostock/4060606)
 
 * [Interactive Map with d3.js - ogr documentation for converting shapefiles](http://www.tnoda.com/blog/2013-12-07) dms_note: most likely we'll have to use ogr to convert a shapefile to d3. 
 
@@ -31,7 +36,9 @@ March 5, 2015
 	* [NY Times - Norway the Slow Way - Pencil sketching Derek Watkins](http://www.nytimes.com/interactive/2014/09/19/travel/reif-larsen-norway.html?_r=0)
 	* [Derek Watkins Bl.ocks](http://bl.ocks.org/dwtkns)
 	
-
+##RMaps & Leaflet
+* [RMaps](http://rmaps.github.io/)
+* [DataMaps](http://datamaps.github.io/)
 
 
 ##Markdown Presentations
