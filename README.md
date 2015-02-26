@@ -2,6 +2,11 @@
 
 March 5, 2015
 
+
+##TNoda
+
+[TNoda code and blog post](http://www.tnoda.com/blog/2013-12-07)
+
 ##Flu
 
 * [Google Flu Trends](https://www.google.org/flutrends/us/#US)
