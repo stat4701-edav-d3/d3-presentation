@@ -30,7 +30,8 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "http://bl.ocks.org/mbostock/raw/4090846/us.json")
+    // .defer(d3.json, "http://bl.ocks.org/mbostock/raw/4090846/us.json")
+    .defer(d3.json, "https://raw.githubusercontent.com/stat4701-edav-d3/d3-presentation/master/data/census/states/states.json")
     .defer(d3.tsv, "https://raw.githubusercontent.com/stat4701-edav-d3/d3-presentation/master/viz/choropleth/_original/unemployment.tsv")
     .await(ready);
 
