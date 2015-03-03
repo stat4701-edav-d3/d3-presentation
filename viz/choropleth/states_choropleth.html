@@ -7,9 +7,24 @@
   stroke: #fff;
   stroke-linejoin: round;
 }
+      #play, #clock {
+        position: absolute;
+        top: 15px;
+      }
+      #play {
+        left: 15px;
+      }
+      #clock {
+        left: 65px;
+      }
 
 </style>
 <body>
+    <div id="wrapper">  
+      <div id="map"></div>
+      <button id="play">play</button>
+      <span id="clock">year</span>
+  </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
